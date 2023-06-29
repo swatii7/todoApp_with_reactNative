@@ -5,15 +5,13 @@ import { useState } from 'react';
 
 export default function App() {
 
-  const arr =['Clean Kitchen', 'Make Breakfast', 'Exercise', 'Go to Temple']
+  const arr =['Clean Kitchen', 'Make Breakfast']
 
-  const [inputText, setInputText] = useState('')
   const [todoList, setTodoList] = useState(arr)
+  const [task, setTask] = useState('')
 
 const addTaskHandler=()=>{
-// Keyboard.dismiss()
-setTodoList([...todoList, inputText])
-setInputText(null)
+ console.log(task)
 }
 
   return (
@@ -30,7 +28,7 @@ setInputText(null)
    <View>
  
    </View>
-   <AddTask onChange= {text => setInputText(text)} value={inputText} onPress= {()=> addTaskHandler()} />
+   <AddTask onChange= {text => setTask(text)} value= {task} onPress= {()=> addTaskHandler()} />
     </View>
   );
 }

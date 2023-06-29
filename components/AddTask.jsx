@@ -1,22 +1,22 @@
 import React from "react";
-import { View, StyleSheet, TextInput, Text, Image } from "react-native";
+import { View, StyleSheet, TextInput, Text, KeyboardAvoidingView } from "react-native";
 
 const MyComponent = (props) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.content}></View>
-      <View style={styles.footer}>
-        <TextInput
-          style={styles.inputWrapper}
-          onChangeText={props.onChange}
-          value={props.value}
-          placeholder="Write a Task"
-        />
-        <View style={styles.addWrapper} onPress= {props.onPress} >
-          <Text style={styles.addText}>+</Text>
-        </View>
+    <KeyboardAvoidingView style={styles.container} behavior="padding">
+    <View style={styles.content}></View>
+    <View style={styles.footer}>
+      <TextInput
+        style={styles.inputWrapper}
+        onChange ={props.onChange}
+        value={props.value}
+        placeholder="Write a Task"
+      />
+      <View style={styles.addWrapper} onPress={props.onPress}>
+        <Text style={styles.addText}>+</Text>
       </View>
     </View>
+  </KeyboardAvoidingView>
   );
 };
 
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     marginLeft: 20,
-    marginRight: 29,
+    marginRight: 29
   },
   content: {
     flex: 1,
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 15,
     backgroundColor: "#FFF",
+    // position: 'relative', 
     borderRadius: 60,
     borderColor: "#C0C0C0",
     color: "#C0C0C0",
